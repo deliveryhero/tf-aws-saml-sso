@@ -21,6 +21,7 @@ resource "aws_iam_role" "administrator" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "sso_administrator" {
@@ -40,6 +41,7 @@ resource "aws_iam_role" "readonly" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "sso_readonly" {
@@ -59,6 +61,7 @@ resource "aws_iam_role" "ec2fullaccess" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "ec2fullaccess" {
@@ -78,6 +81,7 @@ resource "aws_iam_role" "sysadmin" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "sysadmin" {
@@ -97,6 +101,7 @@ resource "aws_iam_role" "developer" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "developer_ec2" {
@@ -131,6 +136,7 @@ resource "aws_iam_role" "poweruser" {
   path                 = "/sso/"
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
+  tags                 = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "poweruser" {

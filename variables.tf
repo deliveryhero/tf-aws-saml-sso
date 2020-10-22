@@ -50,3 +50,9 @@ variable "extra_policies_poweruser" {
   description = "Any extra policy ARNs to attach to the power user role"
   default     = []
 }
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
