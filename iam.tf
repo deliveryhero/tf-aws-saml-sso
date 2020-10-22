@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "sso_administrator" {
 }
 
 resource "aws_iam_role_policy_attachment" "administrator_extra" {
-  count      = "length(var.extra_policies_administrator)
+  count      = length(var.extra_policies_administrator)
   policy_arn = element(var.extra_policies_administrator, count.index)
   role       = aws_iam_role.administrator.name
 }
