@@ -6,6 +6,7 @@ Creates an Identity Provider, assume role policy and default roles in IAM to be 
 
 ```hcl
 module "google_sso" {
+  saml_provider_name = "google"
   source             = "git@github.com:deliveryhero/tf-aws-saml-sso.git?ref=0.1"
   idp_data_file_path = "path/to/GoogleIDPMetadata-my-domain.com.xml"
 }
@@ -28,30 +29,44 @@ terraform-docs md ./ | cat -s | tail -r | tail -n +2 | tail -r > README.md
 ```
 
 ## License
+
 MIT Licensed. See [LICENSE](https://github.com/deliveryhero/tf-ssh-bastion/tree/master/LICENSE) for full details.
+
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| extra_policies_administrator | Any extra policy ARNs to attach to the administrator role | list | `<list>` | no |
-| extra_policies_developer | Any extra policy ARNs to attach to the developer role | list | `<list>` | no |
-| extra_policies_ec2fullaccess | Any extra policy ARNs to attach to the EC2 full access role | list | `<list>` | no |
-| extra_policies_poweruser | Any extra policy ARNs to attach to the power user role | list | `<list>` | no |
-| extra_policies_readonly | Any extra policy ARNs to attach to the read only role | list | `<list>` | no |
-| extra_policies_sysadmin | Any extra policy ARNs to attach to the sysadmin role | list | `<list>` | no |
-| idp_data_file_path | Path to your IDP meta data file | string | - | yes |
-| role_max_session_duration | Max session duration in seconds | string | `43200` | no |
-| saml_provider_name | Name of the provider. Visible in IAM console. | string | `google` | no |
+|------|-------------|------|---------|:--------:|
+| extra\_policies\_administrator | Any extra policy ARNs to attach to the administrator role | `list` | `[]` | no |
+| extra\_policies\_developer | Any extra policy ARNs to attach to the developer role | `list` | `[]` | no |
+| extra\_policies\_ec2fullaccess | Any extra policy ARNs to attach to the EC2 full access role | `list` | `[]` | no |
+| extra\_policies\_poweruser | Any extra policy ARNs to attach to the power user role | `list` | `[]` | no |
+| extra\_policies\_readonly | Any extra policy ARNs to attach to the read only role | `list` | `[]` | no |
+| extra\_policies\_sysadmin | Any extra policy ARNs to attach to the sysadmin role | `list` | `[]` | no |
+| iam\_role\_path | Path of the IAM roles. | `string` | `"/sso/"` | no |
+| iam\_role\_prefix | A string prefixed to all role names | `string` | `"sso-"` | no |
+| idp\_data\_file\_path | Path to your IDP meta data file | `string` | n/a | yes |
+| role\_max\_session\_duration | Max session duration in seconds | `string` | `"43200"` | no |
+| saml\_provider\_name | Name of the provider. Visible in IAM console. | `string` | n/a | yes |
+| tags | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| administrator_role_arn | Adminstrator role ARN |
-| developer_role_arn | Developer role ARN |
-| ec2fullaccess_role_arn | EC2 full access role ARN |
-| poweruser_role_arn | Poweruser role ARN |
-| readonly_role_arn | Read only role ARN |
-| saml_provider_arn | ARN of the SAML provider |
-| sysadmin_role_arn | Sysadmin role ARN |
+| administrator\_role\_arn | Adminstrator role ARN |
+| developer\_role\_arn | Developer role ARN |
+| ec2fullaccess\_role\_arn | EC2 full access role ARN |
+| poweruser\_role\_arn | Poweruser role ARN |
+| readonly\_role\_arn | Read only role ARN |
+| saml\_provider\_arn | ARN of the SAML provider |
+| sysadmin\_role\_arn | Sysadmin role ARN |

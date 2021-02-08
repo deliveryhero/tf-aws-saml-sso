@@ -3,9 +3,20 @@ variable "idp_data_file_path" {
   description = "Path to your IDP meta data file"
 }
 
+variable "iam_role_prefix" {
+  type        = string
+  default     = "sso-"
+  description = "A string prefixed to all role names"
+}
+
+variable "iam_role_path" {
+  type        = string
+  default     = "/sso/"
+  description = "Path of the IAM roles."
+}
+
 variable "saml_provider_name" {
   type        = string
-  default     = "google"
   description = "Name of the provider. Visible in IAM console."
 }
 
