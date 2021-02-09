@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "sso_assume_role_policy" {
 
     principals {
       type        = "Federated"
-      identifiers = [aws_iam_saml_provider.main.arn]
+      identifiers = compact(concat([aws_iam_saml_provider.main.arn], var.iam_assume_role_extra_identifiers))
     }
 
     condition {
@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "sso_assume_role_policy" {
 
 # AdministratorAccess
 resource "aws_iam_role" "administrator" {
-  name                 = "${var.iam_role_prefix}-administrator"
+  name                 = "${var.iam_role_prefix}administrator"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
@@ -37,7 +37,7 @@ resource "aws_iam_role_policy_attachment" "administrator_extra" {
 
 # ReadOnlyAccess
 resource "aws_iam_role" "readonly" {
-  name                 = "${var.iam_role_prefix}-readonly"
+  name                 = "${var.iam_role_prefix}readonly"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
@@ -57,7 +57,7 @@ resource "aws_iam_role_policy_attachment" "readonly_extra" {
 
 # AmazonEC2FullAccess
 resource "aws_iam_role" "ec2fullaccess" {
-  name                 = "${var.iam_role_prefix}-ec2fullaccess"
+  name                 = "${var.iam_role_prefix}ec2fullaccess"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
@@ -77,7 +77,7 @@ resource "aws_iam_role_policy_attachment" "ec2fullaccess_extra" {
 
 # SystemAdministrator
 resource "aws_iam_role" "sysadmin" {
-  name                 = "${var.iam_role_prefix}-sysadmin"
+  name                 = "${var.iam_role_prefix}sysadmin"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
@@ -97,7 +97,7 @@ resource "aws_iam_role_policy_attachment" "developer_sysadmin" {
 
 # Developer
 resource "aws_iam_role" "developer" {
-  name                 = "${var.iam_role_prefix}-developer"
+  name                 = "${var.iam_role_prefix}developer"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
@@ -132,7 +132,7 @@ resource "aws_iam_role_policy_attachment" "developer_extra" {
 
 # PowerUser
 resource "aws_iam_role" "poweruser" {
-  name                 = "${var.iam_role_prefix}-poweruser"
+  name                 = "${var.iam_role_prefix}poweruser"
   path                 = var.iam_role_path
   assume_role_policy   = data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration

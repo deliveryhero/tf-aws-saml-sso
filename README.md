@@ -52,6 +52,7 @@ No requirements.
 | extra\_policies\_poweruser | Any extra policy ARNs to attach to the power user role | `list` | `[]` | no |
 | extra\_policies\_readonly | Any extra policy ARNs to attach to the read only role | `list` | `[]` | no |
 | extra\_policies\_sysadmin | Any extra policy ARNs to attach to the sysadmin role | `list` | `[]` | no |
+| iam\_assume\_role\_extra\_identifiers | ARNs for additional federated identity providers that can assume the roles | `list` | `[]` | no |
 | iam\_role\_path | Path of the IAM roles. | `string` | `"/sso/"` | no |
 | iam\_role\_prefix | A string prefixed to all role names | `string` | `"sso-"` | no |
 | idp\_data\_file\_path | Path to your IDP meta data file | `string` | n/a | yes |

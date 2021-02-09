@@ -15,6 +15,12 @@ variable "iam_role_path" {
   description = "Path of the IAM roles."
 }
 
+variable "iam_assume_role_extra_identifiers" {
+  type        = list
+  default     = []
+  description = "ARNs for additional federated identity providers that can assume the roles"
+}
+
 variable "saml_provider_name" {
   type        = string
   description = "Name of the provider. Visible in IAM console."
