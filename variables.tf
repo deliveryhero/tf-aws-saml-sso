@@ -1,6 +1,6 @@
-variable "idp_data_file_path" {
+variable "idp_data" {
   type        = string
-  description = "Path to your IDP meta data file"
+  description = "A string contained saml IDP metadata"
 }
 
 variable "iam_role_prefix" {
