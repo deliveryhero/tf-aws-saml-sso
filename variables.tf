@@ -68,6 +68,18 @@ variable "extra_policies_poweruser" {
   default     = []
 }
 
+variable "allow_explicit_sso_admin_users" {
+  type        = boolean
+  description = "Enable a trust relationship of the sso admin Role for certain user emails provided with allowed_sso_assume_policy_users"
+  default     = false
+}
+
+variable "allowed_sso_admin_assume_policy_user_emails" {
+  type        = list(string)
+  description = "List of User Emails to explicitly allow using a sso admin role"
+  default     = []
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources."
   type        = map(string)
