@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "sso_assume_role_policy" {
 resource "aws_iam_role" "administrator" {
   name                 = "${var.iam_role_prefix}administrator"
   path                 = var.iam_role_path
-  assume_role_policy   = var.allow_explicit_sso_admin_users ? data.aws_iam_policy_document.sso_assume_role_policy_allow_explicit_users : data.aws_iam_policy_document.sso_assume_role_policy.json
+  assume_role_policy   = var.allow_explicit_sso_admin_users ? data.aws_iam_policy_document.sso_assume_role_policy_allow_explicit_users.json : data.aws_iam_policy_document.sso_assume_role_policy.json
   max_session_duration = var.role_max_session_duration
   tags                 = var.tags
 }
