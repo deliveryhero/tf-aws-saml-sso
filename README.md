@@ -55,7 +55,7 @@ MIT Licensed. See [LICENSE](https://github.com/deliveryhero/tf-ssh-bastion/tree/
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allow_explicit_sso_admin_users"></a> [allow\_explicit\_sso\_admin\_users](#input\_allow\_explicit\_sso\_admin\_users) | Enable a trust relationship of the sso admin Role for certain user emails provided with allowed\_sso\_assume\_policy\_users | `boolean` | `false` | no |
+| <a name="input_allow_explicit_sso_admin_users"></a> [allow\_explicit\_sso\_admin\_users](#input\_allow\_explicit\_sso\_admin\_users) | Enable a trust relationship of the sso admin Role for certain user emails provided with allowed\_sso\_assume\_policy\_users | `bool` | `false` | no |
 | <a name="input_allowed_sso_admin_assume_policy_user_emails"></a> [allowed\_sso\_admin\_assume\_policy\_user\_emails](#input\_allowed\_sso\_admin\_assume\_policy\_user\_emails) | List of User Emails to explicitly allow using a sso admin role | `list(string)` | `[]` | no |
 | <a name="input_extra_policies_administrator"></a> [extra\_policies\_administrator](#input\_extra\_policies\_administrator) | Any extra policy ARNs to attach to the administrator role | `list(any)` | `[]` | no |
 | <a name="input_extra_policies_developer"></a> [extra\_policies\_developer](#input\_extra\_policies\_developer) | Any extra policy ARNs to attach to the developer role | `list(any)` | `[]` | no |
