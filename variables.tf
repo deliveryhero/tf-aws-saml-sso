@@ -69,7 +69,7 @@ variable "extra_policies_poweruser" {
 }
 
 variable "allow_explicit_sso_admin_users" {
-  type        = boolean
+  type        = bool
   description = "Enable a trust relationship of the sso admin Role for certain user emails provided with allowed_sso_assume_policy_users"
   default     = false
 }
